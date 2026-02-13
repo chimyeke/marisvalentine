@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dear Maris,</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Updated romantic fonts: Parisienne for "Happy Val" + Great Vibes for name -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="min-h-screen overflow-x-hidden relative">
+
+  <!-- Floating hearts background -->
+  <div id="hearts" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 bg-white/85 backdrop-blur-md border-b border-rose-200/50 z-50">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2.5 text-2xl sm:text-3xl font-bold text-rose-600">
+        <span class="text-3xl sm:text-4xl">❤️</span>
+        <span class="title-font tracking-wide">Hello,</span>
+      </div>
+      <button id="contactBtn" class="px-6 py-2.5 bg-[var(--primary)] hover:bg-rose-700 text-white font-medium rounded-full shadow-lg transition flex items-center gap-2">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        Contact
+      </button>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16 flex flex-col items-center justify-center min-h-screen">
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-rose-700 title-font tracking-tight mb-10 md:mb-12">
+    </h1>
+
+    <!-- Card stack – added perspective parent for smoother 3D -->
+    <div class="perspective-1000 w-[min(90vw,340px)] sm:w-[min(85vw,420px)] md:w-[min(80vw,480px)] aspect-[3/4.2] max-h-[580px] mx-auto">
+      <div id="card-stack" class="relative w-full h-full"></div>
+    </div>
+
+    <p class="mt-10 text-rose-600/80 text-sm sm:text-base px-6 text-center">
+      <!-- tap the card to open • tap again to see the next memory ♡ -->
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+:root {
+  --primary: #e11d48;
+  --secondary: #f43f5e;
+}
+
+body {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #fff1f2 0%, #fce7f3 50%, #fad0c4 100%);
+}
+
+.title-font {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Parisienne for "Happy Val" – elegant, romantic, less heavy */
+.happy-val {
+  font-family: 'Parisienne', cursive;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/* Great Vibes kept for the name – pairs very well */
+.recipient-name {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+/* Smoother flip – longer duration + better easing + perspective */
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+#card-stack .card {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.25),
+              0 10px 20px -5px rgba(244,63,94,0.2);
+  transition: all 0.4s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+#card-stack .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.1s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* bouncy-smooth */
+  transform-style: preserve-3d;
+}
+
+#card-stack .card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+#card-stack .front,
+#card-stack .back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 1.5rem;
+  transform-style: preserve-3d;
+}
+
+
+
+#card-stack .back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #fff5f7, #fef3f2);
+}
+
+#card-stack .front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Stack offsets – subtle */
+#card-stack .card:nth-child(2) { transform: rotate(-3deg) translate(10px, 14px) !important; }
+#card-stack .card:nth-child(3) { transform: rotate(3deg) translate(5px, 7px) !important; }
+
+@media (max-width: 640px) {
+  #card-stack .card:nth-child(2) { transform: rotate(-2deg) translate(6px, 9px) !important; }
+  #card-stack .card:nth-child(3) { transform: rotate(2deg) translate(3px, 5px) !important; }
+}
+
+/* Idle bounce only on top */
+#card-stack .card:first-child {
+  animation: gentle-bounce 5.5s ease-in-out infinite;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50%      { transform: translateY(-16px) rotate(var(--r, 0deg)); }
+}
+
+/* New card entrance – smoother fade + slight scale */
+#card-stack .card.entering {
+  animation: card-reveal 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+  transform: scale(0.92) translateY(60px) !important;
+}
+
+@keyframes card-reveal {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(var(--r, 0deg)) !important;
+  }
+}
+
+/* Hearts */
+.heart {
+  position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: float 12s linear forwards;
+}
+
+@keyframes float {
+  to { transform: translateY(-120vh) rotate(25deg); opacity: 0; }
+}
